@@ -49,7 +49,7 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     builder (3.2.3)
-    byebug (10.0.2)
+    byebug (9.0.6)
     capybara (2.18.0)
       addressable
       mini_mime (>= 0.1.3)
@@ -96,6 +96,7 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
+    pg (0.20.0)
     public_suffix (3.0.2)
     puma (3.11.4)
     rack (2.0.5)
@@ -167,7 +168,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.10)
       execjs (>= 0.3.0, < 3)
-    web-console (3.6.2)
+    web-console (3.5.1)
       actionview (>= 5.0)
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
@@ -184,23 +185,24 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (= 3.1.11)
   bootstrap-sass (= 3.3.7)
-  byebug
+  byebug (= 9.0.6)
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   hirb
   jbuilder (~> 2.5)
-  listen (>= 3.0.5, < 3.2)
+  listen (= 3.1.5)
+  pg (= 0.20.0)
   puma (~> 3.7)
   rails (~> 5.1.6)
   sass-rails (~> 5.0)
   selenium-webdriver
-  spring
-  spring-watcher-listen (~> 2.0.0)
-  sqlite3
+  spring (= 2.0.2)
+  spring-watcher-listen (= 2.0.1)
+  sqlite3 (= 1.3.13)
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
-  web-console (>= 3.3.0)
+  web-console (= 3.5.1)
 
 BUNDLED WITH
    1.16.1
