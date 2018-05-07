@@ -1,28 +1,35 @@
 source 'https://rubygems.org'
+ruby "2.4.0"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.1.6'
-gem 'bcrypt', '3.1.11'
-gem 'bootstrap-sass','3.3.7'
+gem 'rails',                   '5.1.4'
+gem 'bcrypt',                  '3.1.11'
+gem 'faker',                   '1.7.3'
+gem 'carrierwave',             '1.2.2'
+gem 'mini_magick',             '4.7.0'
 gem 'hirb'
+gem 'will_paginate',           '3.1.6'
+gem 'bootstrap-will_paginate', '1.0.0'
+gem 'bootstrap-sass','3.3.7'
+# gem 'turbo-sprockets-rails5'
 
-gem 'puma', '~> 3.7'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
+gem 'puma',                   '3.9.1'
+gem 'sass-rails',             '5.0.6'
+gem 'uglifier',               '3.2.0'
 # gem 'therubyracer', platforms: :ruby
 
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'coffee-rails',           '4.2.2'
+# I added this gem
+gem 'jquery-rails',           '4.3.1'
+
+gem 'turbolinks',             '5.0.1'
+gem 'jbuilder',               '2.7.0'
+# gem 'redis', '~> 3.0'
+# gem 'bcrypt', '~> 3.1.7'
 
 # gem 'capistrano-rails', group: :development
 
