@@ -1,9 +1,58 @@
 <h1>User Profile</h1>
+<div class="profile">
+    <b>Name:</b>
+    <%= @user.name %> <br>
+    
+    <b>Email:</b>
+    <%= @user.email %><br><br>
+    
+    <%= link_to "Create an Event", new_event_path %>
+</div>
 
-<b>Name:</b>
-<%= @user.name %> <br>
+<div class="upcoming_events">
+    <h3 id= "up">Upcoming Events (<%= @upcoming_events.count %>)</h3>
+    
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Event Date</th>
+          <th>Description</th>
+          <th>Added On</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @upcoming_events.each do |up_event| %>
+          <tr>
+            <td><%= up_event.date %></td>
+            <td><%= link_to up_event.description, up_event %></td>
+            <td><%= up_event.created_at.strftime "%B %e, %Y" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>
+        
+<div class="past_events">
+    <h3 id="past">Past Events (<%= @past_events.count %>)</h3>
+    
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Event Date</th>
+          <th>Description</th>
+          <th>Added On</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @past_events.each do |past_event| %>
+          <tr>
+            <td><%= past_event.date %></td>
+            <td><%= link_to past_event.description, past_event %></td>
+            <td><%= past_event.created_at.strftime "%B %e, %Y" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>
 
-<b>Email:</b>
-<%= @user.email %><br><br>
 
-<%= link_to "Back to Sign up", new_user_path %>
