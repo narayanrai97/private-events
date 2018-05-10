@@ -1,4 +1,4 @@
-<h1>Upcoming Events (<%= @events.count %>)</h1>
+<h1>Upcoming Events (<%= @upcoming_events.count %>)</h1>
 
 
 
@@ -8,15 +8,20 @@
           <th>Event Date</th>
           <th>Description</th>
           <th>Added On</th>
+          <th>Created By</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        <% @events.each do |event| %>
+        <% @upcoming_events.each do |event| %>
           <tr>
             <td><%= event.date %></td>
             <td><%= link_to event.description, event %></td>
             <td><%= event.created_at.strftime "%B %e, %Y" %></td>
+            <td><%= event.creator.name %></td>
+            <td><%= link_to "attend", attend_event_path(event), method: :patch %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
+    <!--tivate_user_path(inactive_user), method: :patch-->

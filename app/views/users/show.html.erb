@@ -3,56 +3,54 @@
     <b>Name:</b>
     <%= @user.name %> <br>
     
-    <b>Email:</b>
-    <%= @user.email %><br><br>
-    
     <%= link_to "Create an Event", new_event_path %>
 </div>
+<div class="created_events">
+  <h3 id="created">Created Events (<%= @created_events.count %>)</h3>
+  <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Event Date</th>
+          <th>Description</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @created_events.each do |created_event| %>
+          <tr>
+            <td><%= created_event.date %></td>
+            <td><%= link_to created_event.description, created_event %></td>
+            <td><%= link_to "delete", created_event, method: :delete, 
+                                      data: { confirm: "You sure?" } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>
 
-<div class="upcoming_events">
-    <h3 id= "up">Upcoming Events (<%= @upcoming_events.count %>)</h3>
+<div class="attended_events">
+    <h3 id= "attendings">Attending Events (<%= @attended_events.count %>)</h3>
     
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
           <th>Event Date</th>
           <th>Description</th>
-          <th>Added On</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
-        <% @upcoming_events.each do |up_event| %>
+        <% @attended_events.each do |attended_event| %>
           <tr>
-            <td><%= up_event.date %></td>
-            <td><%= link_to up_event.description, up_event %></td>
-            <td><%= up_event.created_at.strftime "%B %e, %Y" %></td>
+            <td><%= attended_event.date %></td>
+            <td><%= link_to attended_event.description, attended_event %></td>
+            <td><%= link_to "unattend", unattend_event_path(attended_event), method: :patch %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
 </div>
         
-<div class="past_events">
-    <h3 id="past">Past Events (<%= @past_events.count %>)</h3>
-    
-    <table class="table table-bordered table-striped">
-      <thead>
-        <tr>
-          <th>Event Date</th>
-          <th>Description</th>
-          <th>Added On</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @past_events.each do |past_event| %>
-          <tr>
-            <td><%= past_event.date %></td>
-            <td><%= link_to past_event.description, past_event %></td>
-            <td><%= past_event.created_at.strftime "%B %e, %Y" %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-</div>
+
 
 

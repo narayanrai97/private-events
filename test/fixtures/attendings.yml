@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  attendee: one
-  attended_event: one
+  attendee_id: 1
+  attended_event_id: 1
 
 two:
-  attendee: two
-  attended_event: two
+  attendee_id: 1
+  attended_event_id: 1

@@ -1,6 +1,35 @@
-<h1>Event Details</h1>
+<h1>Event Attendees</h1>
 
 <div class="date">
-    <b>Event Creator:</b>
+    <b>Event Date:</b>
+    <%= @event.date %>
+</div>
+
+<div class="description">
+    <b>Description:</b>
+    <%= @event.description %>
+</div>
+
+<div class="date">
+    <b>Created by:</b>
     <%= @event.creator.name %>
+</div><br>
+
+<div class="attendees-list">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @attendees.each do |attendee| %>
+          <tr>
+            <td><%= attendee.name %></td>
+            <td><%= attendee.email %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 </div>
