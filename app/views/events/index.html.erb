@@ -19,7 +19,14 @@
             <td><%= link_to event.description, event %></td>
             <td><%= event.created_at.strftime "%B %e, %Y" %></td>
             <td><%= event.creator.name %></td>
-            <td><%= link_to "attend", attend_event_path(event), method: :patch %></td>
+            
+            <td><% if event.attendees.where(id: current_user.id).present? %>
+              <%= link_to "Un-attend", unattend_event_path(event), method: :patch %> 
+            <% else %>
+              <%= link_to "Attend", attend_event_path(event), method: :patch %>
+            <% end %></td>
+  
+                      
           </tr>
         <% end %>
       </tbody>

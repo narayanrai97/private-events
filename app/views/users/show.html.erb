@@ -1,10 +1,13 @@
 <h1>User Profile</h1>
 <div class="profile">
     <b>Name:</b>
-    <%= @user.name %> <br>
-    
-    <%= link_to "Create an Event", new_event_path %>
+    <%= @user.name %> 
+</div><br>
+
+<div>
+  <%= link_to "Create an Event", new_event_path %>
 </div>
+
 <div class="created_events">
   <h3 id="created">Created Events (<%= @created_events.count %>)</h3>
   <table class="table table-bordered table-striped">
@@ -50,6 +53,8 @@
       </tbody>
     </table>
 </div>
+
+
         
 
 

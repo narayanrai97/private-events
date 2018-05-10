@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+    default_scope -> { order(:date) } 
+    
     belongs_to :creator,    :class_name => "User"
     has_many   :attendings, foreign_key: :attended_event_id
     has_many   :attendees,  through: :attendings
