@@ -1,22 +1,24 @@
 <h1>Event Attendees</h1>
 
 <div class="date">
-    <b>Event Date:</b>
+    <b>Name:</b>
+    <%= @event.name %>
+</div>
+<div class="date">
+    <b>Date:</b>
     <%= @event.date %>
 </div>
-
+<div class="date">
+    <b>Creator:</b>
+    <%= @event.creator.name %>
+</div>
 <div class="description">
     <b>Description:</b>
     <%= @event.description %>
-</div>
-
-<div class="date">
-    <b>Created by:</b>
-    <%= @event.creator.name %>
 </div><br>
 
 <div class="attendees-list">
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped" style="width:50%;">
       <thead>
         <tr>
           <th>Name</th>

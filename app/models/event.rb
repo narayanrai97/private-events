@@ -6,6 +6,7 @@ class Event < ApplicationRecord
     has_many   :attendees,  through: :attendings
     # has_many :attendees, -> { distinct }, through: :attendings
 
+    validates :name, presence: true, uniqueness: true, length: { maximum: 60 }
     validates :date, presence: true
     validates :description, presence: true, uniqueness: true
     # validates :attendees, uniqueness: true

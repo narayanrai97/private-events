@@ -2,25 +2,24 @@
 
 
 
- <table class="table table-bordered table-striped">
+ <table class="table table-bordered table-striped" style="width:90%">
       <thead>
         <tr>
-          <th>Event Date</th>
+          <th>Name</th>
+          <th>Date</th>
           <th>Description</th>
-          <th>Added On</th>
-          <th>Created By</th>
+          <th>Creator</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
         <% @upcoming_events.each do |event| %>
           <tr>
-            <td><%= event.date %></td>
-            <td><%= link_to event.description, event %></td>
-            <td><%= event.created_at.strftime "%B %e, %Y" %></td>
-            <td><%= event.creator.name %></td>
-            
-            <td><% if event.attendees.where(id: current_user.id).present? %>
+            <td width="15%"><%= event.name %></td>
+            <td width="10%"><%= event.date %></td>
+            <td width="50%"><%= link_to event.description, event %></td>
+            <td width="15%"><%= event.creator.name %></td>
+            <td width="10%"><% if event.attendees.where(id: current_user.id).present? %>
               <%= link_to "Un-attend", unattend_event_path(event), method: :patch %> 
             <% else %>
               <%= link_to "Attend", attend_event_path(event), method: :patch %>

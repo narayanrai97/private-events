@@ -9,11 +9,12 @@
 </div>
 
 <div class="created_events">
-  <h3 id="created">Created Events (<%= @created_events.count %>)</h3>
-  <table class="table table-bordered table-striped">
+  <h3 id="created">Created Events (<%= @created_events.count %>)</h3><br>
+  <table class="table table-bordered table-striped" style="width:90%">
       <thead>
         <tr>
-          <th>Event Date</th>
+          <th>Name</th>
+          <th>Date</th>
           <th>Description</th>
           <th></th>
         </tr>
@@ -21,23 +22,25 @@
       <tbody>
         <% @created_events.each do |created_event| %>
           <tr>
-            <td><%= created_event.date %></td>
-            <td><%= link_to created_event.description, created_event %></td>
-            <td><%= link_to "delete", created_event, method: :delete, 
+            <td width="20%"><%= created_event.name %></td>
+            <td width="20%"><%= created_event.date %></td>
+            <td width="50%"><%= link_to created_event.description, created_event %></td>
+            <td width="10%"><%= link_to "delete", created_event, method: :delete, 
                                       data: { confirm: "You sure?" } %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
-</div>
+</div><br>
 
 <div class="attended_events">
-    <h3 id= "attendings">Attending Events (<%= @attended_events.count %>)</h3>
+    <h3 id= "attendings">Attending Events (<%= @attended_events.count %>)</h3><br>
     
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped" style="width:90%">
       <thead>
         <tr>
-          <th>Event Date</th>
+          <th>Name</th>
+          <th>Date</th>
           <th>Description</th>
           <th></th>
         </tr>
@@ -45,9 +48,10 @@
       <tbody>
         <% @attended_events.each do |attended_event| %>
           <tr>
-            <td><%= attended_event.date %></td>
-            <td><%= link_to attended_event.description, attended_event %></td>
-            <td><%= link_to "unattend", unattend_event_path(attended_event), method: :patch %></td>
+            <td width="20%"><%= attended_event.name %></td>
+            <td width="20%"><%= attended_event.date %></td>
+            <td width="50%"><%= link_to attended_event.description, attended_event %></td>
+            <td width="10%"><%= link_to "unattend", unattend_event_path(attended_event), method: :patch %></td>
           </tr>
         <% end %>
       </tbody>

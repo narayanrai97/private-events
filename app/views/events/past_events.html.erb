@@ -1,23 +1,23 @@
 <h1>Past Events (<%= @past_events.count %>)</h1>
 
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped" style="width:90%">
   <thead>
     <tr>
-      <th>Event Date</th>
+      <th>Name</th>
+      <th>Date</th>
       <th>Description</th>
-      <th>Added On</th>
-      <th>Created By</th>
+      <th>Creator</th>
       <th>Action</th>
     </tr>
   </thead>
   <tbody>
   <% @past_events.each do |past_event| %>
     <tr>
-      <td><%= past_event.date %></td>
-      <td><%= link_to past_event.description, past_event %></td>
-      <td><%= past_event.created_at.strftime "%B %e, %Y" %></td>
-      <td><%= past_event.creator.name %></td>
-      <td>
+      <td width="15%"><%= past_event.name %></td>
+      <td width="10%"><%= past_event.date %></td>
+      <td width="50%"><%= link_to past_event.description, past_event %></td>
+      <td width="15%"><%= past_event.creator.name %></td>
+      <td width="10%">
         <button type="button" disabled>expired</button>
       </td>
     </tr>
