@@ -1,27 +1,27 @@
 <h1>Past Events (<%= @past_events.count %>)</h1>
 
-
-
- <table class="table table-bordered table-striped">
-      <thead>
-        <tr>
-          <th>Event Date</th>
-          <th>Description</th>
-          <th>Added On</th>
-          <th>Created By</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @past_events.each do |past_event| %>
-          <tr>
-            <td><%= past_event.date %></td>
-            <td><%= link_to past_event.description, past_event %></td>
-            <td><%= past_event.created_at.strftime "%B %e, %Y" %></td>
-            <td><%= past_event.creator.name %></td>
-            <td><%= link_to "Attend", attend_event_path(past_event), method: :patch %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Event Date</th>
+      <th>Description</th>
+      <th>Added On</th>
+      <th>Created By</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @past_events.each do |past_event| %>
+    <tr>
+      <td><%= past_event.date %></td>
+      <td><%= link_to past_event.description, past_event %></td>
+      <td><%= past_event.created_at.strftime "%B %e, %Y" %></td>
+      <td><%= past_event.creator.name %></td>
+      <td>
+        <button type="button" disabled>expired</button>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
     
