@@ -15,9 +15,10 @@
       <tbody>
         <% @upcoming_events.each do |event| %>
           <tr>
-            <td width="15%"><%= event.name %></td>
+            <td width="15%"><%= link_to event.name, event %></td>
             <td width="10%"><%= event.date %></td>
-            <td width="50%"><%= link_to event.description, event %></td>
+            <td width="50%"><%= truncate(event.description, length: 150) %><%= link_to "read", event %></td>
+            
             <td width="15%"><%= event.creator.name %></td>
             <td width="10%"><% if event.attendees.where(id: current_user.id).present? %>
               <%= link_to "Un-attend", unattend_event_path(event), method: :patch %> 

@@ -22,9 +22,9 @@
       <tbody>
         <% @created_events.each do |created_event| %>
           <tr>
-            <td width="20%"><%= created_event.name %></td>
+            <td width="20%"><%= link_to created_event.name, created_event %></td>
             <td width="20%"><%= created_event.date %></td>
-            <td width="50%"><%= link_to created_event.description, created_event %></td>
+            <td width="50%"><%= truncate(created_event.description, length: 150) %><%= link_to "read", created_event %></td>
             <td width="10%"><%= link_to "delete", created_event, method: :delete, 
                                       data: { confirm: "You sure?" } %></td>
           </tr>
@@ -48,9 +48,9 @@
       <tbody>
         <% @attended_events.each do |attended_event| %>
           <tr>
-            <td width="20%"><%= attended_event.name %></td>
+            <td width="20%"><%= link_to attended_event.name, attended_event %></td>
             <td width="20%"><%= attended_event.date %></td>
-            <td width="50%"><%= link_to attended_event.description, attended_event %></td>
+            <td width="50%"><%= truncate(attended_event.description, length: 150) %><%= link_to "read", attended_event %></td>
             <td width="10%"><%= link_to "unattend", unattend_event_path(attended_event), method: :patch %></td>
           </tr>
         <% end %>

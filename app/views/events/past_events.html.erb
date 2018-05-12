@@ -13,9 +13,9 @@
   <tbody>
   <% @past_events.each do |past_event| %>
     <tr>
-      <td width="15%"><%= past_event.name %></td>
+      <td width="15%"><%= link_to past_event.name, past_event %></td>
       <td width="10%"><%= past_event.date %></td>
-      <td width="50%"><%= link_to past_event.description, past_event %></td>
+      <td width="50%"><%= truncate(past_event.description, length: 150) %><%= link_to "read", past_event %></td>
       <td width="15%"><%= past_event.creator.name %></td>
       <td width="10%">
         <button type="button" disabled>expired</button>

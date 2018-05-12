@@ -35,7 +35,7 @@ class EventsController < ApplicationController
     @attendees << @user.id
     @event.attendee_ids = @attendees.uniq
     flash.now[:success] = "You've signed up for the event"
-    redirect_to current_user
+    redirect_to events_path
   end
   
   def unattend
@@ -46,7 +46,8 @@ class EventsController < ApplicationController
       flash.now[:succes] = "You've cancelled your signup for the event"
       redirect_to current_user
     else
-      redirect_to events_path
+      flash.now[:error] = "Cancellation not successful"
+      redirect_to current_user
     end
   end
   
