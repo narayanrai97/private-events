@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :search]
+  
   def index
     @upcoming_events = Event.upcoming_events
   end
@@ -62,9 +64,8 @@ class EventsController < ApplicationController
   end
   
   def search
-    # @found_users = User.where('name LIKE ?', "%#{name}%").paginate(page: params[:page], per_page: 5)
-    name = params[:name]
-    @events     = Event.where('name LIKE ?', "%#{name}%")
+    name    = params[:name]
+    @events = Event.where('name LIKE ?', "%#{name}%")
   end
   
   private
@@ -72,5 +73,13 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event)
             .permit(:name, :date, :description)
+    end
+    
+    # Confirms a logged_in user.
+    def logged_in_user
+      unless logged_in?
+        flash[:info] = "Please log in!"
+        redirect_to login_url
+      end
     end
 end

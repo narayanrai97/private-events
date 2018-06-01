@@ -1,8 +1,10 @@
 <% provide(:title, "Home") %>
 
 <form action="/search">
-    <input type="text" name="name" placeholder="Event name...">
-    <input type="submit" value="Search" class="btn-info">
+  <div class="form-group">
+    <input type="text" name="name" class="form-control" placeholder="Event name...">
+    <input type="submit" value="Search Event" class="btn-info">
+  </div>
 </form>
 <% if logged_in? %>
     <div class="center jumbotron">
