@@ -23,6 +23,19 @@ class User < ApplicationRecord
     end
     
     before_validation :normalize_name_email, on: [:create, :update] #callback
+    
+    # Twitter login/logout
+    def self.from_omniauth(auth)    
+       where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
+    end
+    
+    def self.create_from_omniauth(auth)
+        create! do |user|
+            user.provider = auth["provider"]
+            user.uid      = auth["uid"]
+            user.name     = auth["info"]["nickname"]
+        end
+    end
    
    private
     
@@ -35,4 +48,5 @@ class User < ApplicationRecord
     def log_when_events_or_user_touched
         puts 'Event/User was touched'
     end
+    
 end

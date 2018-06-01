@@ -1,0 +1,28 @@
+<% provide(:title, "Home") %>
+
+<form action="/search">
+    <input type="text" name="name" placeholder="Event name...">
+    <input type="submit" value="Search" class="btn-info">
+</form>
+<% if logged_in? %>
+    <div class="center jumbotron">
+  <h3>Congratulations, you're logged in now!</h3>
+
+  <h2>
+    This is the home page for the
+    <a href="https://pvtevents.herokuapp.com/">Private Events</a> application.
+  </h2>
+</div>
+<% else %>
+<div class="center jumbotron">
+  <h1>Welcome to Private Events App</h1>
+
+  <h2>
+    This is the home page for the
+    <a href="https://blogger-me.herokuapp.com/">Blogger Me</a>
+    sample application.
+  </h2>
+
+  <%= link_to "Sign up now!", new_user_path, class: "btn btn-lg btn-primary" %>
+</div>
+<% end %>

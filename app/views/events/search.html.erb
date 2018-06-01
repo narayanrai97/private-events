@@ -1,0 +1,21 @@
+<h2>Search Results <%= @events.count %></h2>
+
+ <table class="table table-bordered table-striped" style="width:90%">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @events.each do |event| %>
+          <tr>
+            <td width="20%"><%= event.date %></td>
+            <td width="30%"><%= link_to event.name, event %></td>
+            <td width="50%"><%= truncate(event.description, length: 150) %><%= link_to "read", event %></td>
+                      
+          </tr>
+        <% end %>
+      </tbody>
+    </table>

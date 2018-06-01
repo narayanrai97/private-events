@@ -30,8 +30,7 @@ gem 'turbolinks',             '5.0.1'
 gem 'jquery-turbolinks'
 gem 'jbuilder',               '2.7.0'
 # gem 'redis', '~> 3.0'
-# gem 'bcrypt', '~> 3.1.7'
-
+gem 'omniauth-twitter'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do

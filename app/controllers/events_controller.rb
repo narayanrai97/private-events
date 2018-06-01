@@ -61,6 +61,12 @@ class EventsController < ApplicationController
     end
   end
   
+  def search
+    # @found_users = User.where('name LIKE ?', "%#{name}%").paginate(page: params[:page], per_page: 5)
+    name = params[:name]
+    @events     = Event.where('name LIKE ?', "%#{name}%")
+  end
+  
   private
   
     def event_params
