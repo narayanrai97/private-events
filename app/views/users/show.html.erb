@@ -1,15 +1,11 @@
-<h1>User Profile</h1>
-<div class="profile">
-    <b>Name:</b>
-    <%= @user.name %> 
-</div><br>
+<h1><%= @user.name %></h1>
 
 <div>
-  <%= link_to "Create an Event", new_event_path %>
+  <%= link_to "Create an Event", new_event_path, class: "btn btn-success" %>
 </div>
 
 <div class="created_events">
-  <h3 id="created">Created Events (<%= @created_events.count %>)</h3><br>
+  <h3 id="created">My Events (<%= @created_events.count %>)</h3><br>
   <table class="table table-bordered table-striped" style="width:90%">
       <thead>
         <tr>
@@ -25,7 +21,7 @@
             <td width="20%"><%= link_to created_event.name, created_event %></td>
             <td width="20%"><%= created_event.date %></td>
             <td width="50%"><%= truncate(created_event.description, length: 150) %><%= link_to "read", created_event %></td>
-            <td width="10%"><%= link_to "delete", created_event, method: :delete, 
+            <td width="10%"><%= link_to "delete", created_event, method: :delete,
                                       data: { confirm: "You sure?" } %></td>
           </tr>
         <% end %>
@@ -34,8 +30,8 @@
 </div><br>
 
 <div class="attended_events">
-    <h3 id= "attendings">Attending Events (<%= @attended_events.count %>)</h3><br>
-    
+    <h3 id= "attendings">Attending (<%= @attended_events.count %>)</h3><br>
+
     <table class="table table-bordered table-striped" style="width:90%">
       <thead>
         <tr>
@@ -57,9 +53,3 @@
       </tbody>
     </table>
 </div>
-
-
-        
-
-
-
