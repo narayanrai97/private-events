@@ -17,7 +17,7 @@ gem 'bootstrap-will_paginate', '1.0.0'
 gem 'bootstrap-sass',  '>= 3.4.1'
 # gem 'turbo-sprockets-rails5'
 
-gem 'puma',                   '3.9.1'
+gem 'puma',                   ">= 3.12.2"
 gem 'sass-rails',             '5.0.6'
 gem 'uglifier',               '3.2.0'
 # gem 'therubyracer', platforms: :ruby
@@ -30,7 +30,7 @@ gem 'turbolinks',             '5.0.1'
 gem 'jquery-turbolinks'
 gem 'jbuilder',               '2.7.0'
 # gem 'redis', '~> 3.0'
-gem 'omniauth-twitter'
+# gem 'omniauth-twitter'
 gem "actionview", ">= 5.1.6.2"
 gem "activejob", ">= 5.1.6.1"
 
